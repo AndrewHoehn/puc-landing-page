@@ -696,6 +696,39 @@ a { color: inherit; }
   .final-signup__mark { width: 36px; margin-bottom: 14px; }
 }
 
+/* ---------- THANKS / CONFIRMATION PAGE ---------- */
+
+.thanks {
+  padding: clamp(60px, 10vw, 140px) var(--pad-x);
+  text-align: center;
+}
+.thanks__inner {
+  max-width: 720px;
+  margin: 0 auto;
+}
+.thanks__mark {
+  width: 56px;
+  margin: 0 auto 28px;
+}
+.thanks .display { margin: 14px 0 18px; }
+.thanks__home {
+  display: inline-block;
+  margin-top: 36px;
+  padding: 12px 22px;
+  background: var(--milk-deep);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 999px;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.thanks__home:hover {
+  background: var(--crimson);
+  color: var(--milk);
+}
+
 /* ---------- FOOTER ---------- */
 
 .footer {

@@ -202,9 +202,13 @@
         for the everyday stuff that can&rsquo;t wait for an appointment, but doesn&rsquo;t belong in the ER.
       </p>
 
-      <form class="signup" action="#" method="post" novalidate>
+      <!-- Swap YOUR_FORM_ID below with the ID from https://formspree.io after creating your form -->
+      <form class="signup" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
         <label class="visually-hidden" for="email-hero">Email address</label>
         <input class="signup__input" type="email" id="email-hero" name="email" placeholder="you@neighbor.com" required/>
+        <input type="hidden" name="_subject" value="New signup — Pullman Urgent Care"/>
+        <input type="hidden" name="_next" value="thanks.html"/>
+        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px"/>
         <button class="signup__btn" type="submit">Let me know &rarr;</button>
       </form>
       <div class="signup__note">One email when we open. That&rsquo;s it.</div>
@@ -414,9 +418,12 @@
       <img class="final-signup__mark" src="assets/logo-mark.png" alt=""/>
       <h3 class="display display--md">Want a note the day we open?</h3>
       <p class="muted">One email. No newsletter. No follow-ups.</p>
-      <form class="signup" action="#" method="post" novalidate>
+      <form class="signup" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
         <label class="visually-hidden" for="email-footer">Email address</label>
         <input class="signup__input" type="email" id="email-footer" name="email" placeholder="you@neighbor.com" required/>
+        <input type="hidden" name="_subject" value="New signup — Pullman Urgent Care"/>
+        <input type="hidden" name="_next" value="thanks.html"/>
+        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px"/>
         <button class="signup__btn" type="submit">Notify me &rarr;</button>
       </form>
     </div>
