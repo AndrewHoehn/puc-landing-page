@@ -1,0 +1,27 @@
+# macOS
+.DS_Store
+**/.DS_Store
+._*
+
+# Design handoff bundle (already implemented)
+_design_pkg/
+
+# Source archives
+*.zip
+
+# Image processing temp files
+Image/_crop*.png
+Image/*crop_preview*
+
+# Editor / OS
+.vscode/
+.idea/
+*.swp
+Thumbs.db
+
+# Node / build (not used here, but future-proof)
+node_modules/
+dist/
+.env
+.env.local
+.env.*.local

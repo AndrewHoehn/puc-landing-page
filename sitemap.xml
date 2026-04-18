@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://pullmanurgentcare.com/</loc>
+    <lastmod>2026-04-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://pullmanurgentcare.com/assets/hero-storefront.jpg</image:loc>
+      <image:title>Pullman Urgent Care storefront on Stadium Way</image:title>
+      <image:caption>Illustration of the Pullman Urgent Care building at 421 NE Stadium Way, Pullman, WA.</image:caption>
+    </image:image>
+  </url>
+</urlset>
