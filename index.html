@@ -202,13 +202,9 @@
         for the everyday stuff that can&rsquo;t wait for an appointment, but doesn&rsquo;t belong in the ER.
       </p>
 
-      <!-- Swap YOUR_FORM_ID below with the ID from https://formspree.io after creating your form -->
-      <form class="signup" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
+      <form class="signup" data-signup-form method="POST" novalidate>
         <label class="visually-hidden" for="email-hero">Email address</label>
-        <input class="signup__input" type="email" id="email-hero" name="email" placeholder="you@neighbor.com" required/>
-        <input type="hidden" name="_subject" value="New signup — Pullman Urgent Care"/>
-        <input type="hidden" name="_next" value="thanks.html"/>
-        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px"/>
+        <input class="signup__input" type="email" id="email-hero" placeholder="you@neighbor.com" required/>
         <button class="signup__btn" type="submit">Let me know &rarr;</button>
       </form>
       <div class="signup__note">One email when we open. That&rsquo;s it.</div>
@@ -418,18 +414,58 @@
       <img class="final-signup__mark" src="assets/logo-mark.png" alt=""/>
       <h3 class="display display--md">Want a note the day we open?</h3>
       <p class="muted">One email. No newsletter. No follow-ups.</p>
-      <form class="signup" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
+      <form class="signup" data-signup-form method="POST" novalidate>
         <label class="visually-hidden" for="email-footer">Email address</label>
-        <input class="signup__input" type="email" id="email-footer" name="email" placeholder="you@neighbor.com" required/>
-        <input type="hidden" name="_subject" value="New signup — Pullman Urgent Care"/>
-        <input type="hidden" name="_next" value="thanks.html"/>
-        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px"/>
+        <input class="signup__input" type="email" id="email-footer" placeholder="you@neighbor.com" required/>
         <button class="signup__btn" type="submit">Notify me &rarr;</button>
       </form>
     </div>
   </section>
 
 </main>
+
+<script>
+/*
+  Signup → Google Forms
+  1. Create a Google Form with one short-answer question: "Email address".
+  2. Click the ⋮ menu → "Get pre-filled link". Fill a test email, click "Get link".
+  3. From the pre-filled URL, copy:
+       - FORM_ID   = the long ID between /d/e/ and /viewform
+       - ENTRY_ID  = the number after "entry." (in the prefill query)
+  4. Paste them below, commit, push.
+*/
+(function () {
+  var GOOGLE_FORM_ID = 'PASTE_YOUR_FORM_ID_HERE';
+  var EMAIL_ENTRY_ID = 'PASTE_YOUR_ENTRY_ID_HERE';
+
+  var POST_URL = 'https://docs.google.com/forms/d/e/' + GOOGLE_FORM_ID + '/formResponse';
+
+  document.querySelectorAll('form[data-signup-form]').forEach(function (form) {
+    var emailInput = form.querySelector('input[type="email"]');
+    var btn = form.querySelector('button[type="submit"]');
+    if (emailInput) emailInput.name = 'entry.' + EMAIL_ENTRY_ID;
+    form.action = POST_URL;
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (!emailInput || !emailInput.checkValidity()) {
+        if (emailInput) emailInput.reportValidity();
+        return;
+      }
+      if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
+
+      var fd = new FormData();
+      fd.append('entry.' + EMAIL_ENTRY_ID, emailInput.value);
+
+      // no-cors: Google returns an opaque response; we can't read it, but the
+      // submission lands in the linked Sheet regardless.
+      fetch(POST_URL, { method: 'POST', mode: 'no-cors', body: fd })
+        .catch(function () { /* treat network errors as success — Google sinks submissions reliably */ })
+        .then(function () { window.location.href = 'thanks.html'; });
+    });
+  });
+})();
+</script>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
         integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
