@@ -6,6 +6,9 @@
 # Design handoff bundle (already implemented)
 _design_pkg/
 
+# Email-signature working template (not for publishing)
+signatures/_template.html
+
 # Source archives
 *.zip
 
