@@ -95,15 +95,9 @@
   "openingHoursSpecification": [
     {
       "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
-      "opens": "08:00",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+      "opens": "08:30",
       "closes": "20:00"
-    },
-    {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Saturday","Sunday"],
-      "opens": "09:00",
-      "closes": "17:00"
     }
   ],
   "areaServed": [
@@ -256,7 +250,7 @@
       <li class="scenario">
         <span class="scenario__dot" aria-hidden="true"></span>
         <div>
-          <div class="scenario__label">Monday, 8 am</div>
+          <div class="scenario__label">Monday, 8:30 am</div>
           <div class="scenario__text">A UTI that needs attention today, not next Thursday.</div>
         </div>
       </li>
@@ -347,12 +341,8 @@
       </div>
       <dl class="hours__list">
         <div class="hours__row">
-          <dt>Monday &ndash; Friday</dt>
-          <dd>8 am &ndash; 8 pm</dd>
-        </div>
-        <div class="hours__row">
-          <dt>Saturday &ndash; Sunday</dt>
-          <dd>9 am &ndash; 5 pm</dd>
+          <dt>Every day</dt>
+          <dd>8:30 am &ndash; 8 pm</dd>
         </div>
       </dl>
     </div>
